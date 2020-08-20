@@ -54,8 +54,7 @@ taytay<-get_artist_audio_features(artist = "Taylor Swift", include_groups = "alb
                                   return_closest_artist = TRUE, dedupe_albums = TRUE,
                                   authorization = get_spotify_access_token())
 
-#Cleaning data and keeping only studio albuns mapped above
-#removing columns that seems irrelevant to the analysis
+#Cleaning data and keeping only studio albuns mapped above removing columns that seems irrelevant to the analysis
 #Tearsdrops On My Guitar on the 2006 - Taylor Swift album, there are 2 versions: Pop Version and Radio Single Remix
 #Naming Fearless Platinum Edition to Fearless for clarity
 tay_cds <-
