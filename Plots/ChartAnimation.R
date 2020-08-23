@@ -11,7 +11,8 @@ library(gifski)
 library(png)
 
 #Get my directory for my file on spotify
-data_dir <- path("/Volumes/SATA/Spotify/")
+folder="YOUR_DIRECTORY"
+data_dir <- path(folder)
 #Read the contents of my directory
 data_list = fs::dir_ls(data_dir, regexp = "\\.csv$")
 
@@ -73,4 +74,4 @@ animated_charts = ggplot(charts10, aes(rank, group = track_name,fill=barcolor))+
 #Glue plots together to make a gif
 
 animate(animated_charts, nframes = 350,fps = 15,  width = 1200, height = 1000, 
-        renderer = gifski_renderer("gganim.gif"))
+        renderer = gifski_renderer("chart_animation.gif"))
