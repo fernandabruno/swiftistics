@@ -72,5 +72,5 @@ animated_charts<-
 
 #Glue plots together to make a gif
 animate(animated_charts, nframes = 350,fps = 15,width = 800, height = 600,
-        renderer = gifski_renderer("chart_animation.gif"))
+        renderer = gifski_renderer("cumulative_streams.gif"))
   
