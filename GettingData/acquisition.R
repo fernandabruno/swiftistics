@@ -84,3 +84,4 @@ str(tay_cds)
 #Cheking values
 glimpse(tay_cds)
 
+write.csv2(tay_cds, file = "taytayspotify.csv",row.names = FALSE)
