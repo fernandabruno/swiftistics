@@ -112,8 +112,12 @@ drinking.melt = melt(drinking_sum,id=c("album_name","sumrange"))
 #Making viz
 drinking.melt %>%
   mutate(album_name = factor(album_name,
-                             levels=c("Taylor Swift","Fearless","Speak Now","Red","1989","reputation","Lover","folklore","evermore"))) %>%
-  ggplot(aes(x = variable , y = value)) +
+                             levels=c("Taylor Swift","Fearless","Speak Now",
+                                      "Red","1989","reputation","Lover",
+                                      "folklore","evermore")),
+  variable = as.character(variable),
+  words = if_else((variable == "beers" | variable == "beer"), "beer", variable))%>%
+  ggplot(aes(x = words , y = value)) +
   geom_point() +
   facet_wrap(~ album_name, scales = "free") +
   coord_flip() +
@@ -123,3 +127,22 @@ drinking.melt %>%
        subtile  = "Data Source: VagaLume API",
        caption = "by @fernanda_bruno_ | Code available on https://github.com/fernandabruno/swiftistics")+
   theme(plot.title = element_text(hjust = 0.5))
+
+#Stacked bar plot
+library(viridis)
+drinking.melt %>%
+  mutate(album_name = factor(album_name,
+                             levels=c("Taylor Swift","Fearless","Speak Now",
+                                      "Red","1989","reputation","Lover",
+                                      "folklore","evermore")),
+         variable = as.character(variable),
+         words = if_else((variable == "beers" | variable == "beer"), "beer", variable))%>%
+  ggplot(aes(fill=words, y=value, x=album_name,label = value)) + 
+  geom_bar(position="stack", stat="identity")+
+  scale_fill_brewer(palette="Spectral") +
+  labs(x = "Album", y = "Frequency")+
+  labs(title = "Taylor Swift’s References to Alcohol by Album",  
+       subtile  = "Data Source: VagaLume API",
+       caption = "by @fernanda_bruno_ | Code available on https://github.com/fernandabruno/swiftistics")+
+  theme(plot.title = element_text(hjust = 0.5))
+  
