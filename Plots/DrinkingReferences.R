@@ -123,15 +123,3 @@ drinking.melt %>%
        subtile  = "Data Source: VagaLume API",
        caption = "by @fernanda_bruno_ | Code available on https://github.com/fernandabruno/swiftistics")+
   theme(plot.title = element_text(hjust = 0.5))
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
