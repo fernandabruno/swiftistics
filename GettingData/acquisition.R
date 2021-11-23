@@ -17,9 +17,12 @@ Sys.setenv(SPOTIFY_CLIENT_ID = 'CLIENT_ID')
 Sys.setenv(SPOTIFY_CLIENT_SECRET = 'CLIENT_SECRET')
 access_token <- get_spotify_access_token()
 
-#####################
-##Taylor albuns IDs##
-#####################
+###############
+#IDs e albuns#
+##############
+#red (taylor's version) - "6kZ42qRrzov54LcAk4onW9"
+#fearless (taylor's version) - "4hDok0OAJd57SGIT8xuWJH"
+#evermore - "2Xoteh7uEpea4TohMxjtaq"
 #Folklore - "2fenSS68JI1h4Fo296JfGr"
 #Lover - "1NAmidJlEaVgA3MpcPFYGq"
 #Reputation - "6DEjYFkNZh67HP7R9PSZvv"
@@ -29,25 +32,32 @@ access_token <- get_spotify_access_token()
 #Fearless - "2gP2LMVcIFgVczSJqn340t"
 #Taylor Swift - "5eyZZoQEFQWRHkV2xgAeBw"
 
-#Data frame for album ids that are being considered
-albuns = data.frame(id = c("2fenSS68JI1h4Fo296JfGr",
-                           "1NAmidJlEaVgA3MpcPFYGq",
-                           "6DEjYFkNZh67HP7R9PSZvv",
-                           "5fy0X0JmZRZnVa2UEicIOl",
-                           "1KVKqWeRuXsJDLTW0VuD29",
-                           "6Ar2o9KCqcyYF9J0aQP3au",
-                           "2gP2LMVcIFgVczSJqn340t",
-                           "5eyZZoQEFQWRHkV2xgAeBw"),
-                    name= c("Folkore",
-                            "Lover",
-                            "Reputation",
-                            "1989",
-                            "Red",
-                            "Speak Now",
-                            "Fearless",
-                            "Taylor Swift"),
-                    stringsAsFactors = FALSE
-)
+ids_albuns=c("6kZ42qRrzov54LcAk4onW9",
+             "4hDok0OAJd57SGIT8xuWJH",
+             "2Xoteh7uEpea4TohMxjtaq",
+             "2fenSS68JI1h4Fo296JfGr",
+             "1NAmidJlEaVgA3MpcPFYGq",
+             "6DEjYFkNZh67HP7R9PSZvv",
+             "5fy0X0JmZRZnVa2UEicIOl",
+             "1KVKqWeRuXsJDLTW0VuD29",
+             "6Ar2o9KCqcyYF9J0aQP3au",
+             "2gP2LMVcIFgVczSJqn340t",
+             "5eyZZoQEFQWRHkV2xgAeBw")
+
+id_albuns = data.frame(id = c("6kZ42qRrzov54LcAk4onW9",
+                              "4hDok0OAJd57SGIT8xuWJH",
+                              "2Xoteh7uEpea4TohMxjtaq",
+                              "2fenSS68JI1h4Fo296JfGr",
+                              "1NAmidJlEaVgA3MpcPFYGq",
+                              "6DEjYFkNZh67HP7R9PSZvv",
+                              "5fy0X0JmZRZnVa2UEicIOl",
+                              "1KVKqWeRuXsJDLTW0VuD29",
+                              "6Ar2o9KCqcyYF9J0aQP3au",
+                              "2gP2LMVcIFgVczSJqn340t",
+                              "5eyZZoQEFQWRHkV2xgAeBw"))
+
+nome_albuns = data.frame(nome=c("Red (Taylor's Version","Fearless (Taylor's Version)","Evermore",
+                                "Folkore","Lover","Reputation","1989","Red","Speak Now","Fearless","Taylor Swift"))
 
 #Get album data using spotifyr package
 taytay<-get_artist_audio_features(artist = "Taylor Swift", include_groups = "album",
